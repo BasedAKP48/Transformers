@@ -1,6 +1,6 @@
 const utils = require('@basedakp48/plugin-utils');
 
-const regex = /{(\d+)(?:-(\d+)|(\*))?}/g;
+const regex = /{(\d+)(?:-(\d+)|(\*))?(?:=((?:.(?! {\d))*))?}/g;
 const plugin = new utils.Plugin({ dir: __dirname });
 let prefix = '.'; // Get prefix from config
 
@@ -126,12 +126,12 @@ function moreThanMeetsTheEye(msg) {
  */
 function getText(text, args) {
   if (regex.test(text)) {
-    return text.replace(regex, (match, start, end, rest) => {
+    return text.replace(regex, (match, start, end, rest, def) => {
       if (start === '0') return args.join(' ');
-      if (start > args.length) return '';
+      if (start > args.length) return def || '';
       if (end || rest) {
         const range = getRange(args, start, rest ? args.length : end);
-        return range.join(' ').trim();
+        return range.join(' ').trim() || def || '';
       }
       return args[start - 1];
     });

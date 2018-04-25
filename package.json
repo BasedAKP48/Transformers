@@ -1,0 +1,26 @@
+{
+  "name": "@basedakp48/transformers",
+  "version": "1.0.0",
+  "description": "Transforms messages and resends them as something else.",
+  "license": "MIT",
+  "repository": "BasedAKP48/Transformers",
+  "author": "Alan H (feildmaster) <akp48@feildmaster.com> (https://feildmaster.com/)",
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "basedakp48",
+    "basedakp48-plugin"
+  ],
+  "dependencies": {
+    "@basedakp48/plugin-utils": "^1.14.0",
+    "firebase-admin": "^5.11.0"
+  },
+  "devDependencies": {
+    "@basedakp48/eslint-config": "^1.0.1",
+    "eslint": "^4.16.0"
+  }
+}
